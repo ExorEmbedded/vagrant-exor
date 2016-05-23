@@ -3,22 +3,12 @@
 ########################
 $script1 = <<SCRIPT
 sudo su
-#apt-get remove -y cloud-init
-# Use bash insted of sh
-#rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install required packages and setup source repositories (required to patch pam)
-#cat /etc/apt/sources.list | sed  s/deb/deb-src/ >> /etc/apt/sources.list
 apt-get update 
 apt-get install -y git python diffstat texinfo gawk chrpath wget nano
 apt-get install -y build-essential
 apt-get install -y x11vnc xinit xserver-xorg-input-evdev bc g++-multilib
-
-# Fake initscripts
-#dpkg-divert --local --rename --add /sbin/initctl
-#dpkg-divert --local --rename --add /etc/init.d/systemd-logind
-#ln -sf /bin/true /sbin/initctl
-#ln -sf /bin/true /etc/init.d/systemd-logind
 apt-get install -y e17
 
 # Setup avahi to autoconnect to device
@@ -49,9 +39,9 @@ apt-get install -y libgstreamer0.10-0 libgstreamer-plugins-base0.10-0
 #echo 1.1 > /boot/vmVersion
 
 # Install SDK
-wget http://download.exorembedded.net:8080/Public/usom02/latest/exor-alterakit-us02-sdk-i386.sh -O /exor-alterakit-sdk.sh
-chmod +x /exor-alterakit-sdk.sh
-/exor-alterakit-sdk.sh
+wget http://download.exorembedded.net:8080/Public/SDK/exor-evm-qt5-sdk.sh -O /exor-evm-qt5-sdk.sh
+chmod +x /exor-evm-qt5-sdk.sh
+//exor-evm-qt5-sdk.sh
 
 # Bitbake wont run as root, create a new user and home folder
 useradd -m -d /home/user -s /bin/bash user
@@ -67,20 +57,21 @@ echo "export HOME=/home/user" >> ~/.profile
 
 # Install qtcreator
 whoami
-wget http://download.exorembedded.net:8080/Public/qtcreator-3.2.2.tar.gz -O /home/user/qtcreator-3.3.2.tar.gz
+wget  http://download.exorembedded.net:8080/Public/utils/qtcreator-3.2.2.tar.gz -O /home/user/qtcreator-3.3.2.tar.gz
 chmod 777 /home/user/qtcreator-3.3.2.tar.gz
 tar xzvf /home/user/qtcreator-3.3.2.tar.gz -C /home/user/ 
-#rm /home/user/qtcreator-3.3.2.tar.gz
+rm /home/user/qtcreator-3.3.2.tar.gz
 
 
 
 # Clone repositories
-mkdir -p /home/user/yocto-1.5.3/git
-cd /home/user/yocto-1.5.3/git
-git clone -b exorint git://github.com/ExorEmbedded/yocto-poky.git
-git clone -b exorint git://github.com/ExorEmbedded/yocto-meta-openembedded.git
-git clone -b dora git://github.com/ExorEmbedded/meta-browser.git
-git clone -b master git://github.com/ExorEmbedded/meta-exor-us02.git
+mkdir -p /home/user/yocto-2.0/git
+cd /home/user/yocto-2.0/git
+git clone -b jethro git://github.com/ExorEmbedded/yocto-poky.git
+git clone -b jethro git://github.com/ExorEmbedded/yocto-meta-openembedded.git
+git clone -b jethro git://github.com/ExorEmbedded/meta-browser.git
+git clone -b jethro git://github.com/ExorEmbedded/meta-qt5.git
+git clone -b jethro git://github.com/ExorEmbedded/meta-exor.git
 echo 'BUILD_ARCH = "i686"' >> meta-exor-us02/conf/local.conf.sample
 
 # Set yocto config template path
@@ -130,9 +121,7 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |v|
     v.gui = true
   end
-  #config.vm.network "public_network", :adapter=>1 , type: "dhcp", bridge: "en0"
-  
-  #config.vm.network "public_network", bridge: "en0"
+ 
   config.vm.network "public_network"
   config.vm.provision "shell", inline: $script1
 
