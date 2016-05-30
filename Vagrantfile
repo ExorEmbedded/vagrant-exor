@@ -118,10 +118,6 @@ Vagrant.configure(2) do |config|
     v.name = "my_vm"
   end
   config.vm.hostname = "exor"
-
-  config.vm.provider "virtualbox" do |v|
-    v.gui = true
-  end
  
   config.vm.network "public_network"
   config.vm.provision "shell", inline: $script1, privileged: false
@@ -139,5 +135,4 @@ Vagrant.configure(2) do |config|
     v.memory = 2048
     v.cpus = 1
   end
-  
 end
