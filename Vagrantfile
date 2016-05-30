@@ -104,6 +104,9 @@ wait
 initctl reload-configuration
 sync
 wait
+
+#set start directory terminal
+echo "cd" >> .bashrc
 sudo chown -R user:user /home/user/
   
 SCRIPT
