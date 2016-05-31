@@ -22,7 +22,7 @@ git clone https://github.com/ExorEmbedded/vagrant-exor.git
 cd vagrant-exor
 vagrant up
 wait
-#dhutdown virtualmachine
+#shutdown virtualmachine
 vagrant halt -f
 wait
 
@@ -33,9 +33,12 @@ VBoxManage clonehd "box-disk1.vmdk" "cloned.vdi" --format vdi
 VBoxManage modifyhd "cloned.vdi" --resize 256000
 VBoxManage storageattach my_vm --storagectl "SATAController" --port 0 --device 0 --type hdd --medium cloned.vdi
 
-
-#create box for user
+#reload machine 
 cd
 cd vagrant-exor
+vagrant up
+vagrant halt
+wait
 #created file.box
 vagrant package --vagrant Vagrantfile --output vagrant_exor_32bit.box
+wait
