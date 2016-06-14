@@ -1,14 +1,14 @@
 #!/bin/sh
 cd
 
-if [ -e VirtualBox\ VMs/my_vm/*.vbox ]; then
-	VBoxManage controlvm my_vm poweroff
-	VBoxManage unregistervm --delete "my_vm"
+if [ -e VirtualBox\ VMs/Exor-Development/*.vbox ]; then
+	VBoxManage controlvm Exor-Development poweroff
+	VBoxManage unregistervm --delete "Exor-Development"
 fi
 
-if [ -e VirtualBox\ VMs/my_vm ]; then
+if [ -e VirtualBox\ VMs/Exor-Development ]; then
 	cd VirtualBox\ VMs
-	rm -r my_vm
+	rm -r Exor-Development
 	cd
 fi
 if [ -e vagrant-exor ]; then
@@ -28,7 +28,7 @@ wait
 
 #resize harddisk virtual machine
 cd
-cd VirtualBox\ VMs/my_vm
+cd VirtualBox\ VMs/Exor-Development/
 VBoxManage clonehd "box-disk1.vmdk" "cloned.vdi" --format vdi
 VBoxManage modifyhd "cloned.vdi" --resize 256000
 VBoxManage storageattach my_vm --storagectl "SATAController" --port 0 --device 0 --type hdd --medium cloned.vdi

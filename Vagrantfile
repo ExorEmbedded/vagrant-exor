@@ -107,15 +107,21 @@ wait
 
 #set start directory terminal
 echo "cd" >> .bashrc
+cd /home/user/qtcreator-3.3.2/bin
+
+sed -i -e 's|exec "$bindir/qtcreator" ${1+"$@"}|exec ". /opt/exorintos/2.0/environment-setup-cortexa9hf-vfp-neon-poky-linux-gnueabi;$bindir/qtcreator;" ${1+"$@"}|g'
+
+
+
 sudo chown -R user:user /home/user/
   
 SCRIPT
 
 Vagrant.configure(2) do |config|
   
-  config.vm.box = "ubuntu/trusty32"
+   config.vm.box = "ubuntu/trusty32"
   config.vm.provider "virtualbox" do |v|
-    v.name = "my_vm"
+    v.name = "Exor-Development"
   end
   config.vm.hostname = "exor"
  
@@ -132,8 +138,12 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 5353, host: 5353, auto_correct: true
   
   config.vm.provider "virtualbox" do |v|
-    v.memory = 2048
-    v.cpus = 1
+    v.memory = 4096
+    v.cpus = 2
+    v.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    v.customize ["modifyvm", :id, "--ioapic", "on"]
+    v.customize ["modifyvm", :id, "--vram", "128"]
+    v.customize ["modifyvm", :id, "--hwvirtex", "on"]
   end
   config.vm.provider "virtualbox" do |v|
     v.gui = false

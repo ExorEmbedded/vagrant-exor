@@ -136,6 +136,5 @@ echo '
 
    - VNC interface listening on port 5555 (vncviewer localhost:5555).
    - Ctrl+D to exit this console.
-   - docker start -ai <container_name> to resume the console.
 '
 unset color_prompt force_color_prompt
