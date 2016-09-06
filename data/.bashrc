@@ -112,7 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
+cd
 
 
 [ "$color_prompt" = yes ] && echo -en "\e[01;34m"
@@ -132,9 +132,6 @@ echo '
 [ "$color_prompt" = yes ] && echo -en "\e[00m"
 
 echo '
-   Welcome to the Exor Development KIT docker image!
-
-   - VNC interface listening on port 5555 (vncviewer localhost:5555).
-   - Ctrl+D to exit this console.
+   Welcome to the Exor Development KIT VM!
 '
 unset color_prompt force_color_prompt
