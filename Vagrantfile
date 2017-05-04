@@ -2,33 +2,15 @@ $ExorVMInstall = <<SCRIPT
 
 set -e
 
-wget http://download.exorembedded.net:8080/Public/usom01/SDK/exor-us01kit-qt5-x11-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us01-kit-x11
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us01-kit-x11
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us01-g++ /opt/exorintos/us01-kit-x11/sysroots/cortexa8hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
+wget http://download.exorembedded.net:8080/Public/ExorPanels/un60-hsxx-sdk-1.0.3.sh -O /un60-hsxx-sdk.sh
+chmod +x /un60-hsxx-sdk.sh
+/un60-hsxx-sdk.sh -y
+rm /un60-hsxx-sdk.sh
 
-wget http://download.exorembedded.net:8080/Public/usom01/SDK/exor-us01kit-qt5-wayland-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us01-kit-wayland
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us01-kit-wayland
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us01-g++ /opt/exorintos/us01-kit-wayland/sysroots/cortexa8hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
-
-wget http://download.exorembedded.net:8080/Public/usom02/SDK/exor-us02kit-qt5-x11-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us02-kit
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us02-kit
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us02-g++ /opt/exorintos/us02-kit/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
-
-wget http://download.exorembedded.net:8080/Public/usom03/SDK/exor-us03kit-qt5-x11-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us03-kit
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us03-kit
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us03-g++ /opt/exorintos/us03-kit/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
+wget http://download.exorembedded.net:8080/Public/ExorPanels/Qt484-usom01-O3-rel-mt.tar.bz2 -q -O /Qt484-usom01.tar.bz2
+mkdir -p /opt/exor
+tar xjvf /Qt484-usom01.tar.bz2 -C /opt/exor
+rm -rf /Qt484-usom01.tar.bz2
 
 # Bitbake wont run as root, create a new user and home folder
 useradd -m -d /home/user -s /bin/bash user
@@ -54,20 +36,6 @@ cp -r /vagrant/data/xfce4 /home/user/.config
 mkdir /home/user/VM-Share
 mkdir /home/user/Desktop
 ln -s /home/user/VM-Share /home/user/Desktop/VM-Share
-
-# Setup Yocto 2.1 workspace
-mkdir -p /home/user/exor-yocto-2.1/git
-cd /home/user/exor-yocto-2.1/git
-git clone -b krogoth git://github.com/ExorEmbedded/yocto-poky.git
-git clone -b krogoth git://github.com/ExorEmbedded/yocto-meta-openembedded.git
-git clone -b master git://github.com/ExorEmbedded/meta-browser.git
-git clone -b krogoth git://github.com/ExorEmbedded/meta-qt5.git
-git clone -b krogoth git://github.com/ExorEmbedded/meta-exor.git
-git clone -b master git://github.com/ExorEmbedded/meta-ti.git
-git clone -b krogoth git://github.com/ExorEmbedded/meta-fsl-arm.git
-
-#Set yocto config template path
-echo "export TEMPLATECONF=/home/user/exor-yocto-2.1/git/meta-exor/conf" >> /home/user/.profile
 
 cp -r /vagrant/data/helloworld  /home/user
 cp -r /vagrant/data/.bashrc /home/user/.bashrc

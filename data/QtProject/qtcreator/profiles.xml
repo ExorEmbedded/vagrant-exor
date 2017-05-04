@@ -1,166 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProfiles>
-<!-- Written by QtCreator 4.0.2, 2016-08-26T15:50:02. -->
+<!-- Written by QtCreator 3.0.1, 2017-05-04T06:52:19. -->
 <qtcreator>
  <data>
   <variable>Profile.0</variable>
   <valuemap type="QVariantMap">
    <value type="bool" key="PE.Profile.AutoDetected">false</value>
-   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
    <valuemap type="QVariantMap" key="PE.Profile.Data">
     <value type="QString" key="Android.GdbServer.Information"></value>
-    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
-     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
-     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
-    </valuelist>
-    <value type="QString" key="CMake.GeneratorKitInformation"></value>
-    <value type="QString" key="CMakeProjectManager.CMakeKitInformation"></value>
-    <value type="QString" key="Debugger.Information">{4f3ee386-5b26-4cd4-bcc8-caec751002ce}</value>
-    <value type="QString" key="PE.Profile.Device">Desktop Device</value>
-    <value type="QByteArray" key="PE.Profile.DeviceType">Desktop</value>
-    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
-    <value type="QString" key="PE.Profile.SysRoot"></value>
-    <value type="QByteArray" key="PE.Profile.ToolChain">{fabecc32-8119-490a-8103-b7497c95f904}</value>
+    <value type="QString" key="CMakeProjectManager.KitInformation">CMakeProjectManager.DefaultCMakeTool</value>
+    <value type="QString" key="Debugger.Information">{542a9636-922c-40cc-8d8e-88501330b7a3}</value>
+    <value type="QString" key="PE.Profile.Device">{32046f13-0c50-4185-8818-a52f7c81c9ed}</value>
+    <value type="QString" key="PE.Profile.DeviceType">GenericLinuxOsType</value>
+    <value type="QString" key="PE.Profile.SysRoot">/opt/exorintos/1.5.3/sysroots/cortexa8hf-vfp-neon-poky-linux-gnueabi</value>
+    <value type="QString" key="PE.Profile.ToolChain">ProjectExplorer.ToolChain.Gcc:{9a90e869-1baf-4cb8-a3ac-517bfda5ad54}</value>
     <value type="QString" key="QtPM4.mkSpecInformation"></value>
-    <value type="int" key="QtSupport.QtInformation">2</value>
+    <value type="int" key="QtSupport.QtInformation">5</value>
    </valuemap>
    <value type="QString" key="PE.Profile.Icon">:///DESKTOP///</value>
-   <value type="QString" key="PE.Profile.Id">{a80f8688-12d0-4a0d-aa4d-18c8ffdebbc3}</value>
+   <value type="QString" key="PE.Profile.Id">{34adeeee-8984-43ea-be36-a18b78022b71}</value>
    <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
-   <value type="QString" key="PE.Profile.Name">Desktop</value>
+   <value type="QString" key="PE.Profile.Name">ARM-Exor</value>
    <value type="bool" key="PE.Profile.SDK">false</value>
-   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
   </valuemap>
  </data>
  <data>
   <variable>Profile.1</variable>
   <valuemap type="QVariantMap">
    <value type="bool" key="PE.Profile.AutoDetected">false</value>
-   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
    <valuemap type="QVariantMap" key="PE.Profile.Data">
     <value type="QString" key="Android.GdbServer.Information"></value>
-    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
-     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
-     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
-    </valuelist>
-    <value type="QString" key="CMake.GeneratorKitInformation"></value>
-    <value type="QString" key="CMakeProjectManager.CMakeKitInformation"></value>
-    <value type="QString" key="Debugger.Information">{091800f5-6bbe-4018-bf11-6780411d4f96}</value>
-    <value type="QString" key="PE.Profile.Device">{12e5e418-9cb8-45dc-9c31-83e69b0a8bc7}</value>
-    <value type="QString" key="PE.Profile.DeviceType">GenericLinuxOsType</value>
-    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
-    <value type="QString" key="PE.Profile.SysRoot">/opt/exorintos/us01-kit-x11/sysroots/cortexa8hf-neon-poky-linux-gnueabi</value>
-    <value type="QString" key="PE.Profile.ToolChain">{dfd731d0-7052-4f93-a7f2-3aa7eaac1a00}</value>
-    <value type="QString" key="QtPM4.mkSpecInformation">linux-us01-g++</value>
-    <value type="int" key="QtSupport.QtInformation">3</value>
-   </valuemap>
-   <value type="QString" key="PE.Profile.Icon">:///DESKTOP///</value>
-   <value type="QString" key="PE.Profile.Id">{35613c49-b1fa-4dba-b3ec-fa4c0cc6220f}</value>
-   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
-   <value type="QString" key="PE.Profile.Name">us01-kit x11</value>
-   <value type="bool" key="PE.Profile.SDK">false</value>
-   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
-  </valuemap>
- </data>
- <data>
-  <variable>Profile.2</variable>
-  <valuemap type="QVariantMap">
-   <value type="bool" key="PE.Profile.AutoDetected">false</value>
-   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
-   <valuemap type="QVariantMap" key="PE.Profile.Data">
-    <value type="QString" key="Android.GdbServer.Information"></value>
-    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
-     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
-     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
-    </valuelist>
-    <value type="QString" key="CMake.GeneratorKitInformation"></value>
-    <value type="QString" key="CMakeProjectManager.CMakeKitInformation"></value>
-    <value type="QString" key="Debugger.Information">{091800f5-6bbe-4018-bf11-6780411d4f96}</value>
-    <value type="QString" key="PE.Profile.Device">{12e5e418-9cb8-45dc-9c31-83e69b0a8bc7}</value>
-    <value type="QString" key="PE.Profile.DeviceType">GenericLinuxOsType</value>
-    <valuelist type="QVariantList" key="PE.Profile.Environment">
-     <value type="QString">XDG_RUNTIME_DIR=/run/user/root</value>
-    </valuelist>
-    <value type="QString" key="PE.Profile.SysRoot">/opt/exorintos/us01-kit-wayland/sysroots/cortexa8hf-neon-poky-linux-gnueabi</value>
-    <value type="QString" key="PE.Profile.ToolChain">{59074a67-7e4f-4624-ab1b-795703499f06}</value>
-    <value type="QString" key="QtPM4.mkSpecInformation">linux-us01-g++</value>
+    <value type="QString" key="CMakeProjectManager.KitInformation">CMakeProjectManager.DefaultCMakeTool</value>
+    <value type="QString" key="Debugger.Information">{27bbfb45-42bf-4339-97b6-a991ed2891ea}</value>
+    <value type="QString" key="PE.Profile.Device">Desktop Device</value>
+    <value type="QByteArray" key="PE.Profile.DeviceType">Desktop</value>
+    <value type="QString" key="PE.Profile.SysRoot"></value>
+    <value type="QString" key="PE.Profile.ToolChain">ProjectExplorer.ToolChain.Gcc:{4f248a97-8f23-4513-93d3-c8086b100e61}</value>
+    <value type="QString" key="QtPM4.mkSpecInformation"></value>
     <value type="int" key="QtSupport.QtInformation">4</value>
    </valuemap>
    <value type="QString" key="PE.Profile.Icon">:///DESKTOP///</value>
-   <value type="QString" key="PE.Profile.Id">{f4f8a412-b400-4331-a0e8-6006e9821b91}</value>
+   <value type="QString" key="PE.Profile.Id">{ef16bc73-0275-47bf-abdd-748721ff081b}</value>
    <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
-   <value type="QString" key="PE.Profile.Name">us01-kit wayland</value>
+   <value type="QString" key="PE.Profile.Name">Desktop</value>
    <value type="bool" key="PE.Profile.SDK">false</value>
-   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
-  </valuemap>
- </data>
- <data>
-  <variable>Profile.3</variable>
-  <valuemap type="QVariantMap">
-   <value type="bool" key="PE.Profile.AutoDetected">false</value>
-   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
-   <valuemap type="QVariantMap" key="PE.Profile.Data">
-    <value type="QString" key="Android.GdbServer.Information"></value>
-    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
-     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
-     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
-    </valuelist>
-    <value type="QString" key="CMake.GeneratorKitInformation"></value>
-    <value type="QString" key="CMakeProjectManager.CMakeKitInformation"></value>
-    <value type="QString" key="Debugger.Information">{770d1fc5-37f4-4c07-a0ff-eba5611d912e}</value>
-    <value type="QString" key="PE.Profile.Device">{4b9261f6-233f-48e0-a71f-06ada23d9d4d}</value>
-    <value type="QString" key="PE.Profile.DeviceType">GenericLinuxOsType</value>
-    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
-    <value type="QString" key="PE.Profile.SysRoot">/opt/exorintos/us02-kit/sysroots/cortexa9hf-neon-poky-linux-gnueabi</value>
-    <value type="QString" key="PE.Profile.ToolChain">{f52cc26d-c46f-4467-a5d1-32b76c2e853d}</value>
-    <value type="QString" key="QtPM4.mkSpecInformation">linux-us02-g++</value>
-    <value type="int" key="QtSupport.QtInformation">5</value>
-   </valuemap>
-   <value type="QString" key="PE.Profile.Icon">:///DESKTOP///</value>
-   <value type="QString" key="PE.Profile.Id">{f62e4c67-ad78-4eb1-ac8c-71a454d4073e}</value>
-   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
-   <value type="QString" key="PE.Profile.Name">us02-kit</value>
-   <value type="bool" key="PE.Profile.SDK">false</value>
-   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
-  </valuemap>
- </data>
- <data>
-  <variable>Profile.4</variable>
-  <valuemap type="QVariantMap">
-   <value type="bool" key="PE.Profile.AutoDetected">false</value>
-   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
-   <valuemap type="QVariantMap" key="PE.Profile.Data">
-    <value type="QString" key="Android.GdbServer.Information"></value>
-    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
-     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
-     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
-    </valuelist>
-    <value type="QString" key="CMake.GeneratorKitInformation"></value>
-    <value type="QString" key="CMakeProjectManager.CMakeKitInformation"></value>
-    <value type="QString" key="Debugger.Information">{9f3e9a88-e865-4a56-8bf6-10be90815a5c}</value>
-    <value type="QString" key="PE.Profile.Device">{6637d952-1449-4c04-bf44-687c76905a2f}</value>
-    <value type="QString" key="PE.Profile.DeviceType">GenericLinuxOsType</value>
-    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
-    <value type="QString" key="PE.Profile.SysRoot">/opt/exorintos/us03-kit/sysroots/cortexa9hf-neon-poky-linux-gnueabi</value>
-    <value type="QString" key="PE.Profile.ToolChain">{84961684-67ca-4492-bf03-abe2d43ea562}</value>
-    <value type="QString" key="QtPM4.mkSpecInformation">linux-us03-g++</value>
-    <value type="int" key="QtSupport.QtInformation">6</value>
-   </valuemap>
-   <value type="QString" key="PE.Profile.Icon">:///DESKTOP///</value>
-   <value type="QString" key="PE.Profile.Id">{6b91a6b2-ca3b-4aee-b59b-ada30d7fedd6}</value>
-   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
-   <value type="QString" key="PE.Profile.Name">us03-kit</value>
-   <value type="bool" key="PE.Profile.SDK">false</value>
-   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
   </valuemap>
  </data>
  <data>
   <variable>Profile.Count</variable>
-  <value type="int">5</value>
+  <value type="int">2</value>
  </data>
  <data>
   <variable>Profile.Default</variable>
-  <value type="QString">{a80f8688-12d0-4a0d-aa4d-18c8ffdebbc3}</value>
+  <value type="QString">{ef16bc73-0275-47bf-abdd-748721ff081b}</value>
  </data>
  <data>
   <variable>Version</variable>

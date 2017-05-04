@@ -20,5 +20,5 @@ HEADERS  += helloworldwidget.h
 FORMS    += helloworldwidget.ui
 
 # Target deploy support:
-target.path = /home/root/
+target.path = /home/admin
 INSTALLS += target

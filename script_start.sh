@@ -1,12 +1,13 @@
 
 set -e
 
-target=us03-kit
+target=
 
-VERSION=2.0
+VERSION=1.0
 STAGE1_BOX="vagrant_exor_stage1.box"
 
 # Clean up VMs
+vboxmanage controlvm "ExorDev-VM" poweroff || true
 vboxmanage unregistervm "ExorDev-VM" --delete || true
 vboxmanage unregistervm "ExorDev-VM-stage1" --delete || true
 
@@ -37,8 +38,10 @@ CFGFILE="$( vboxmanage showvminfo ExorDev-VM --machinereadable | grep CfgFile | 
 VMDIR="$( dirname "$CFGFILE" )"
 cd "$VMDIR"
 
+DISK_IMAGE="$( echo box-disk*)"
+
 # Clone hd and resize to 300GB
-VBoxManage clonehd "box-disk1.vmdk" "cloned.vdi" --format vdi
+VBoxManage clonehd "$DISK_IMAGE" "cloned.vdi" --format vdi
 VBoxManage modifyhd "cloned.vdi" --resize 307000
 vboxmanage modifyhd "cloned.vdi" --compact
 VBoxManage clonehd "cloned.vdi" "ExorVM-hd.vmdk" --format vmdk
@@ -47,14 +50,13 @@ VBoxManage clonehd "cloned.vdi" "ExorVM-hd.vmdk" --format vmdk
 VBoxManage storageattach ExorDev-VM --storagectl "SATAController" --port 0 --device 0 --type hdd --medium "ExorVM-hd.vmdk"
 
 # Remove old hardisk and intermediate vdi
-vboxmanage closemedium "box-disk1.vmdk" --delete
+vboxmanage closemedium "$DISK_IMAGE" --delete
 vboxmanage closemedium "cloned.vdi" --delete
 
 # Export VM
 cd ..
-VBoxManage export ExorDev-VM -o Exor-VirtualBox-VM-v$VERSION.ova
-
-exit 0
+rm -f Exor-VirtualBox-VM-v$VERSION.ova
+VBoxManage export ExorDev-VM -o Exor-VirtualBox-VM-v$VERSION.ova || exit 0
 
 # Delete VM
 vboxmanage unregistervm "ExorDev-VM" --delete

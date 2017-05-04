@@ -2,15 +2,12 @@ $ExorVMInstall = <<SCRIPT
 
 set -e
 
-# Add ppa for QT5.6 desktop
-add-apt-repository ppa:beineri/opt-qt561-trusty
-
 # Install required packages and setup source repositories
 apt-get update
 apt-get install -y dictionaries-common
 apt-get install -y xfce4 xfce4-terminal xfce4-xkb-plugin dos2unix ifmetric gedit
 apt-get install -y git python diffstat texinfo gawk chrpath wget nano firefox humanity-icon-theme
-apt-get install -y --force-yes build-essential qt56creator
+apt-get install -y --force-yes build-essential qtcreator qtdeclarative5-qtquick2-plugin libqt4-dev
 apt-get install -y xinit xserver-xorg-input-evdev bc g++-multilib libgl1-mesa-dev
 apt-get install -y avahi-daemon avahi-utils
 
