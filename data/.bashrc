@@ -114,6 +114,7 @@ fi
 
 cd
 
+export TEMPLATECONF=/home/user/exor-yocto-3.0/git/meta-exor/conf
 
 [ "$color_prompt" = yes ] && echo -en "\e[01;34m"
 echo '

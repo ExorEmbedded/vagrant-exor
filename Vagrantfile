@@ -1,102 +1,62 @@
 $ExorVMInstall = <<SCRIPT
 
-set -e
+set -v -e
 
-wget http://download.exorembedded.net:8080/Public/usom01/SDK/exor-us01kit-qt5-x11-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us01-kit-x11
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us01-kit-x11
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us01-g++ /opt/exorintos/us01-kit-x11/sysroots/cortexa8hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
-
-wget http://download.exorembedded.net:8080/Public/usom01/SDK/exor-us01kit-qt5-wayland-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us01-kit-wayland
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us01-kit-wayland
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us01-g++ /opt/exorintos/us01-kit-wayland/sysroots/cortexa8hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
-
-wget http://download.exorembedded.net:8080/Public/usom02/SDK/exor-us02kit-qt5-x11-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us02-kit
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us02-kit
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us02-g++ /opt/exorintos/us02-kit/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
-
-wget http://download.exorembedded.net:8080/Public/usom03/SDK/exor-us03kit-qt5-x11-sdk-v2.0.sh -q -O /exor-evm-qt5-sdk.sh
-mkdir -p /opt/exorintos/us03-kit
-chmod +x /exor-evm-qt5-sdk.sh
-/exor-evm-qt5-sdk.sh -y -d /opt/exorintos/us03-kit
-rm /exor-evm-qt5-sdk.sh
-cp -r /vagrant/data/linux-us03-g++ /opt/exorintos/us03-kit/sysroots/cortexa9hf-neon-poky-linux-gnueabi/usr/lib/qt5/mkspecs/
-
-# Bitbake wont run as root, create a new user and home folder
-useradd -m -d /home/user -s /bin/bash user
-echo "user:password" | chpasswd 
-adduser user sudo
-echo "export HOME=/home/user" >> /home/user/.profile
-
-# Let user use sudo without password
-sed /etc/sudoers -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL) NOPASSWD: ALL/g'
-
-# Do not ask for password to mount filesystems
-sed -i'' 's:allow_any>auth_admin:allow_any>yes:' /usr/share/polkit-1/actions/org.freedesktop.udisks2.policy
+echo -e "Yes\n300GB" | /sbin/parted /dev/sda ---pretend-input-tty resizepart 1
+resize2fs /dev/sda1
 
 mkdir /home/user/.config
 
 # Setup QtCreator configuration
-cp -r /vagrant/data/QtProject /home/user/.config
+cp -r /vagrant/data/QtCreator/QtProject /home/user/.config
+cp -r /vagrant/data/QtCreator/QtProject /opt
+cp -r /vagrant/data/QtCreator/helloworld /home/user
+cp -r /vagrant/data/QtCreator/mkspecs /opt
 
 # Copy Xfce configuration
 cp -r /vagrant/data/xfce4 /home/user/.config
 
-# Shared directory
-mkdir /home/user/VM-Share
-mkdir /home/user/Desktop
-ln -s /home/user/VM-Share /home/user/Desktop/VM-Share
+# SDK Installer
+cp /vagrant/data/SDKInstaller/Install*.sh /home/user/Desktop
+chmod +x /home/user/Desktop/Install*.sh
+cp /vagrant/data/SDKInstaller/installSDK /usr/bin
+chmod +x /usr/bin/installSDK
 
-# Setup Yocto 2.1 workspace
-mkdir -p /home/user/exor-yocto-2.1/git
-cd /home/user/exor-yocto-2.1/git
-git clone -b krogoth git://github.com/ExorEmbedded/yocto-poky.git
-git clone -b krogoth git://github.com/ExorEmbedded/yocto-meta-openembedded.git
-git clone -b master git://github.com/ExorEmbedded/meta-browser.git
-git clone -b krogoth git://github.com/ExorEmbedded/meta-qt5.git
-git clone -b krogoth git://github.com/ExorEmbedded/meta-exor.git
-git clone -b master git://github.com/ExorEmbedded/meta-ti.git
-git clone -b krogoth git://github.com/ExorEmbedded/meta-fsl-arm.git
+curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
+chmod a+x /usr/bin/repo
+git config --global user.name "NoName"
+git config --global user.email ""
 
-#Set yocto config template path
-echo "export TEMPLATECONF=/home/user/exor-yocto-2.1/git/meta-exor/conf" >> /home/user/.profile
+# Setup Yocto 2.4 workspace
+mkdir -p /home/user/exor-yocto-4.0
+cd /home/user/exor-yocto-4.0
+echo n | repo init -u https://github.com/ExorEmbedded/exor-bsp-platform -b rocko
+repo sync
 
-cp -r /vagrant/data/helloworld  /home/user
 cp -r /vagrant/data/.bashrc /home/user/.bashrc
 dos2unix /home/user/.bashrc
 
-# Add a init job to start xfce session
-cp -r /vagrant/data/dev-session.conf  /etc/init/
-dos2unix /etc/init/dev-session.conf
+# Add a systemd unit to start a xfce dev session
+cp -r /vagrant/data/dev-session/dev-session /usr/bin
+dos2unix /usr/bin/dev-session
+chmod +x /usr/bin/dev-session
+cp -r /vagrant/data/dev-session/dev-session.service /lib/systemd/system
+ln -s /lib/systemd/system/dev-session.service /etc/systemd/system/multi-user.target.wants/dev-session.service
+dos2unix /lib/systemd/system/dev-session.service
 
-initctl reload-configuration
+cp /vagrant/data/QtCreator/qtcreator.png /usr/share/pixmaps
 
 # Give priority to eth1 which is the bridged interface (needed for avahi)
 echo 'auto lo\n\
 iface lo inet loopback\n\n\
-auto eth0\n\
-iface eth0 inet dhcp\n\
+auto enp0s3\n\
+iface enp0s3 inet dhcp\n\
    metric 1\n\n\
-auto eth1\n\
-iface eth1 inet dhcp\n\
+auto enp0s8\n\
+iface enp0s8 inet dhcp\n\
    metric 0\n' > /etc/network/interfaces
 
 chown -R user:user /home/user/
-
-# This is a trick to zero out the hard disk free space. Will result in
-# a better compression of the final image
-echo Clearing free space...
-dd if=/dev/zero of=/fill bs=1M || true
-sync
-rm /fill
 
 exit 0
 

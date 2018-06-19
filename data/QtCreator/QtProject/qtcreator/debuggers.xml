@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorDebuggers>
+<!-- Written by QtCreator 4.5.2, 2018-06-18T12:47:03. -->
+<qtcreator>
+ <data>
+  <variable>DebuggerItem.0</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">x86-linux-generic-elf-64bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">true</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/usr/bin/gdb</value>
+   <value type="QString" key="DisplayName">System GDB at /usr/bin/gdb</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{9cd616e7-d054-4b7e-8e74-ad5630992869}</value>
+   <value type="QDateTime" key="LastModified">2017-06-09T19:39:06</value>
+   <value type="QString" key="Version">7.11.1</value>
+   <value type="QString" key="WorkingDirectory"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.1</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-generic-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">false</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/opt/exorintos/ns01-kit/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb</value>
+   <value type="QString" key="DisplayName">GDB (ns01-kit)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{64dbab86-be9d-4b50-b4be-f43e1a87cce8}</value>
+   <value type="QDateTime" key="LastModified"></value>
+   <value type="QString" key="Version">7.12.1</value>
+   <value type="QString" key="WorkingDirectory"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.2</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-generic-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">false</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/opt/exorintos/us03-kit/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb</value>
+   <value type="QString" key="DisplayName">GDB (us03-kit)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{ab2c71a0-8cef-4cce-b3f7-2c1d9f05dc4a}</value>
+   <value type="QDateTime" key="LastModified"></value>
+   <value type="QString" key="Version">8.0.0</value>
+   <value type="QString" key="WorkingDirectory"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.3</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-generic-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">false</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/opt/exorintos/us02-kit/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb</value>
+   <value type="QString" key="DisplayName">GDB (us02-kit)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{edc2c4ad-8526-47d7-8b58-39918d552fdf}</value>
+   <value type="QDateTime" key="LastModified"></value>
+   <value type="QString" key="Version">8.0.0</value>
+   <value type="QString" key="WorkingDirectory"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.4</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-generic-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">false</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/opt/exorintos/us01-kit/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb</value>
+   <value type="QString" key="DisplayName">GDB (us01-kit)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{98b74ffc-0c90-4b85-a078-825fcb0d39c4}</value>
+   <value type="QDateTime" key="LastModified"></value>
+   <value type="QString" key="Version">8.0.0</value>
+   <value type="QString" key="WorkingDirectory"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.5</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-generic-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">false</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/opt/exorintos/ns01-kit/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gdb</value>
+   <value type="QString" key="DisplayName">GDB (ns01-kit)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{1c5acf6e-4fda-40a2-9d40-3c8f2ccadd05}</value>
+   <value type="QDateTime" key="LastModified"></value>
+   <value type="QString" key="Version">8.0.0</value>
+   <value type="QString" key="WorkingDirectory"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.Count</variable>
+  <value type="int">6</value>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>

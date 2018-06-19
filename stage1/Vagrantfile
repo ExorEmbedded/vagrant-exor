@@ -1,34 +1,67 @@
 $ExorVMInstall = <<SCRIPT
 
-set -e
+set -v
 
-# Add ppa for QT5.6 desktop
-add-apt-repository ppa:beineri/opt-qt561-trusty
+# Add ppa for QT5.9 desktop
+add-apt-repository ppa:beineri/opt-qt593-xenial
+
+# Add ppa for GCC 7
+add-apt-repository ppa:ubuntu-toolchain-r/test
 
 # Install required packages and setup source repositories
 apt-get update
 apt-get install -y dictionaries-common
-apt-get install -y xfce4 xfce4-terminal xfce4-xkb-plugin dos2unix ifmetric gedit
-apt-get install -y git python diffstat texinfo gawk chrpath wget nano firefox humanity-icon-theme
-apt-get install -y --force-yes build-essential qt56creator
-apt-get install -y xinit xserver-xorg-input-evdev bc g++-multilib libgl1-mesa-dev
+apt-get install -y xfce4 xfce4-terminal xfce4-xkb-plugin dos2unix ifmetric gedit gcc-7 g++-7 gdb
+apt-get install -y git python diffstat texinfo gawk chrpath wget nano firefox humanity-icon-theme network-manager 
+apt-get install -y --force-yes build-essential qt59-meta-full
+apt-get install -y xinit xserver-xorg-input-evdev bc g++-multilib libgl1-mesa-dev virtualbox-guest-dkms virtualbox-guest-x11
 apt-get install -y avahi-daemon avahi-utils
 
-# Remove some wait on network configuration
-sed -i'' 's:\tsleep.*:sleep 2:' /etc/init/failsafe.conf
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 20
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 20
+
+wget https://download.qt.io/official_releases/qtcreator/4.5/4.5.2/qt-creator-opensource-src-4.5.2.tar.gz -q
+tar xzf qt-creator-opensource-src-4.5.2.tar.gz
+cd qt-creator-opensource-src-4.5.2
+. /opt/qt59/bin/qt59-env.sh
+qmake
+make -j 4
+make install
+cd ..
+rm -rf qt-creator-opensource-src*
+
+# Create a new user and home folder
+useradd -m -d /home/user -s /bin/bash user
+echo "user:password" | chpasswd 
+adduser user sudo
+echo "export HOME=/home/user" >> /home/user/.profile
+
+# Let user use sudo without password
+sed /etc/sudoers -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL) NOPASSWD: ALL/g'
+
+# Do not ask for password to mount filesystems
+sed -i'' 's:allow_any>auth_admin:allow_any>yes:' /usr/share/polkit-1/actions/org.freedesktop.udisks2.policy
+
+# Shared directory
+mkdir /home/user/VM-Share
+mkdir /home/user/Desktop
+ln -s /home/user/VM-Share /home/user/Desktop/VM-Share
 
 # Remove cloud-init, speeds up the boot
 apt-get purge -y cloud-init
 rm -rf /etc/init/cloud*
 
+dd if=/dev/zero of=/zeros
+rm -rf /zeros
+sync
+
 exit 0
 
 SCRIPT
 
-
 Vagrant.configure(2) do |config|
   
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   
   config.vm.hostname = "ExorDev-VM"
   config.vm.network "public_network"

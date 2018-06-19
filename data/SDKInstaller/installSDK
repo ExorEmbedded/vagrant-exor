@@ -1,0 +1,71 @@
+#!/bin/bash
+
+function fail {
+	echo
+	echo 'ERROR:' $1
+	shift;
+	[ -n "$@" ]; echo $@
+	echo 'Press ENTER to exit...'
+	read
+	exit 1
+}
+
+[ -z "$1" -o -z "$2" ] && fail 'Missing arguments.' 'Usage: installSDK <SDKDownloadURL> <PlatformName>'
+
+echo '*'
+echo '* This will install the SDK for the' $2 'platform.'
+echo '* Press ENTER to continue...'
+echo '*'
+read
+
+SDK_URL="$1"
+PLATFORM="$2"
+SDK_FILE="/opt/exorintos/SDK-${PLATFORM}.sh"
+INSTALL_DIR="/opt/exorintos/$PLATFORM"
+
+if [ -d "$INSTALL_DIR" ]; then
+	echo "The SDK appears to be already installed in $INSTALL_DIR."
+
+	while true; do
+		read -p 'Do you want to re-install it [y/N]?' yn
+		case $yn in
+			[Yy]* ) break;;
+			[Nn]* ) exit;;
+			'' ) exit;;
+			* ) echo 'Please answer yes or no.';;
+		esac
+	done
+	echo
+fi
+
+sudo rm -rf $SDK_FILE $INSTALL_DIR
+sudo mkdir -p $( dirname $INSTALL_DIR )
+
+echo '*'
+echo '* Downloading SDK file...'
+echo '*'
+
+sudo wget -O "$SDK_FILE" "$SDK_URL"
+[ $? -ne 0 ] && fail 'Failed to download file.'
+
+echo '*'
+echo '* Installing SDK...'
+echo '*'
+mkdir -p "$INSTALL_DIR"
+chmod +x $SDK_FILE
+sudo $SDK_FILE -y -d $INSTALL_DIR
+[ $? -ne 0 ] && fail 'Failed to install SDK.'
+
+sudo cp -r /opt/mkspecs/linux-${PLATFORM}* ${INSTALL_DIR}/sysroots/*poky-linux*/usr/lib/qt5/mkspecs
+
+sudo killall qtcreator; sleep 1
+rm -rf $HOME/.config/QtProject*
+cp -r /opt/QtProject $HOME/.config
+sudo chown -R $SUDO_USER $HOME/.config
+
+sync
+
+echo
+echo 'Done.'
+echo 'Press ENTER to exit...'
+read

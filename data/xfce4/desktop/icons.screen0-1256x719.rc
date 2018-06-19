@@ -1,0 +1,35 @@
+[xfdesktop-version-4.10.3+-rcfile_format]
+4.10.3+=true
+
+[/home/user/Desktop/Install us01-kit SDK.sh]
+row=5
+col=0
+
+[/home/user/Desktop/Install us03-kit SDK.sh]
+row=1
+col=1
+
+[/home/user/Desktop/Install ns01-kit SDK.sh]
+row=4
+col=0
+
+[/home/user/Desktop/Install us02-kit SDK.sh]
+row=0
+col=1
+
+[/home/user/Desktop/VM-Share]
+row=3
+col=0
+
+[/home/user]
+row=2
+col=0
+
+[/]
+row=1
+col=0
+
+[Trash]
+row=0
+col=0
+

@@ -1,0 +1,17 @@
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+export DISPLAY=:0
+
+Xorg &
+
+(
+sleep 6	
+VBoxClient --clipboard
+VBoxClient --draganddrop
+VBoxClient --display
+)&
+
+# Mount the share folder if defined
+mount -t vboxsf share /home/user/VM-Share/ || true
+
+# Start Xfce4 user session
+/bin/su user -c "/usr/bin/xfce4-session"

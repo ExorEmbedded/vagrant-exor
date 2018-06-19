@@ -1,11 +1,14 @@
 [Desktop Entry]
-Exec=/opt/qt56/bin/qtcreator-wrapper %F
-Icon=QtProject-qtcreator
+Exec=/bin/bash -c "DISPLAY=:0 /bin/qtcreator"
+Icon=/usr/share/pixmaps/qtcreator.png
 Type=Application
 Terminal=false
-Name=Qt 5.6 Creator
+Name=Qt 5.9 Creator
 GenericName=Integrated Development Environment
 MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;application/vnd.nokia.qt.qmakeprofile;application/vnd.nokia.xml.qt.resource;
 Categories=Qt;Development;IDE;
 InitialPreference=9
-X-XFCE-Source=file:///usr/share/applications/qt56creator.desktop
+X-XFCE-Source=file:///usr/share/applications/qt59creator.desktop
+Comment=
+Path=
+StartupNotify=false

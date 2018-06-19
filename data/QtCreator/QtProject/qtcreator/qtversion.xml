@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorQtVersions>
+<!-- Written by QtCreator 4.5.2, 2018-06-18T12:47:03. -->
+<qtcreator>
+ <data>
+  <variable>QtVersion.0</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">2</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} in PATH (qt59)</value>
+   <value type="QString" key="QMakePath">/opt/qt59/bin/qmake</value>
+   <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.1</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">3</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} (ns01-kit)</value>
+   <value type="QString" key="QMakePath">/opt/exorintos/ns01-kit/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/qmake</value>
+   <value type="QString" key="QtVersion.Type">RemoteLinux.EmbeddedLinuxQt</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.2</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">4</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} (us03-kit)</value>
+   <value type="QString" key="QMakePath">/opt/exorintos/us03-kit/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/qmake</value>
+   <value type="QString" key="QtVersion.Type">RemoteLinux.EmbeddedLinuxQt</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.3</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">5</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} (us02-kit)</value>
+   <value type="QString" key="QMakePath">/opt/exorintos/us02-kit/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/qmake</value>
+   <value type="QString" key="QtVersion.Type">RemoteLinux.EmbeddedLinuxQt</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.4</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">6</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} (us01-kit)</value>
+   <value type="QString" key="QMakePath">/opt/exorintos/us01-kit/sysroots/x86_64-pokysdk-linux/usr/bin/qt5/qmake</value>
+   <value type="QString" key="QtVersion.Type">RemoteLinux.EmbeddedLinuxQt</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>
